@@ -1,7 +1,7 @@
 package banking;
 
 public class BankSystem {
-    private final banking.CardInformation[] accountList = new banking.CardInformation[10];
+    private final CardInformation[] accountList = new CardInformation[10];
     private int numberOfAccounts = 0;
 
     public String storeAccount(banking.CardInformation account) {
