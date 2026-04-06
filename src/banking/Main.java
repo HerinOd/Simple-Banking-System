@@ -17,7 +17,7 @@ public class Main {
             switch (choice) {
                 case 1 -> {
                     CardInformation account = new CardInformation();
-                    System.out.println("Balance: " + bankSystem.storeAccount(account));
+                    System.out.println(bankSystem.storeAccount(account));
                 }
                 case 2 -> {
                     System.out.println("Enter your card number:");
@@ -28,13 +28,16 @@ public class Main {
                     if (currentLoggedInAccount != null) {
                         System.out.println("\nYou have successfully logged in!\n");
                         while (currentLoggedInAccount != null) {
-                            System.out.println("1. Create an account\n" +
-                                    "2. Log into account\n" +
+                            System.out.println("1. Balance\n" +
+                                    "2. Log out\n" +
                                     "0. Exit\n");
                             String loggedInChoice = input.nextLine();
                             switch (loggedInChoice) {
-                                case "1" -> System.out.println(currentLoggedInAccount.getBalance());
-                                case "2" -> currentLoggedInAccount = null;
+                                case "1" -> System.out.println("Balance: " + currentLoggedInAccount.getBalance());
+                                case "2" -> {
+                                    currentLoggedInAccount = null;
+                                    System.out.println("You have successfully logged out!\n");
+                                }
                                 case "0" -> {
                                     return;
                                 }
