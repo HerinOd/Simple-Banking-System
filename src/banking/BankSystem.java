@@ -4,7 +4,7 @@ public class BankSystem {
     private final CardInformation[] accountList = new CardInformation[10];
     private int numberOfAccounts = 0;
 
-    public String storeAccount(banking.CardInformation account) {
+    public String storeAccount(CardInformation account) {
         if (numberOfAccounts <= 9) {
             accountList[numberOfAccounts] = account;
             numberOfAccounts++;
@@ -16,7 +16,7 @@ public class BankSystem {
         }
     }
 
-    public banking.CardInformation logAccount(String cardNumber, String pinNumber) {
+    public CardInformation logAccount(String cardNumber, String pinNumber) {
         for (int i = 0; i < numberOfAccounts; i++) {
             if (accountList[i].getCardNumber().equals(cardNumber) && accountList[i].getPinNumber().equals(pinNumber)) {
                 return accountList[i];
