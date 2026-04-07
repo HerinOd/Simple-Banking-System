@@ -4,16 +4,17 @@ public class LuhnAlgorithm {
     public static String generateCheckSum(String cardNumberWithoutCheckSum) {
         int length = cardNumberWithoutCheckSum.length(); // length = 15
         int sum = 0;
-        for (int i = 0; i < length; i += 2) {
-            int oddIndexNumber = (cardNumberWithoutCheckSum.charAt(i) - '0') * 2;
-            int evenIndexNumber = 0;
-            if ((i > 0) && (i < 14)) {
-                evenIndexNumber = (cardNumberWithoutCheckSum.charAt(i + 1) - '0');
+        for (int i = 0; i < length; i++) {
+            int number;
+            if ((i % 2) == 0) {
+                number = (cardNumberWithoutCheckSum.charAt(i) - '0') * 2;
+                if (number > 9) {
+                    number -= 9;
+                }
+            } else {
+                number = cardNumberWithoutCheckSum.charAt(i) - '0';
             }
-            if (oddIndexNumber > 9) {
-                oddIndexNumber -= 9;
-            }
-            sum += (oddIndexNumber + evenIndexNumber);
+            sum += number;
         }
         int checkSum = (10 - (sum % 10)) % 10;
         return checkSum + "";
