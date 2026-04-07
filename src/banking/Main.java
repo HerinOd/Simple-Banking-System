@@ -7,7 +7,7 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         BankSystem bankSystem = new BankSystem();
-        CardInformation currentLoggedInAccount;
+        UserAccount currentLoggedInAccount;
 
         while (true) {
             System.out.println("1. Create an account\n" +
@@ -16,7 +16,7 @@ public class Main {
             int choice = input.nextInt(); input.nextLine();
             switch (choice) {
                 case 1 -> {
-                    CardInformation account = new CardInformation();
+                    UserAccount account = new UserAccount();
                     System.out.println(bankSystem.storeAccount(account));
                 }
                 case 2 -> {
